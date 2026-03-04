@@ -1,34 +1,373 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#ffffff">
-    <title>Your Website Title</title>
-    <style>
-        :root {
-            --primary-color: #ffdf1b; /* bright accent color */
-            --secondary-color: #4a90e2; /* lively accent color */
-            --background-color: #ffffff; /* light background */
-            --text-color: #333333; /* dark text for contrast */
-        }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Victor Tsai</title>
+  <meta name="description" content="Victor Tsai — Education consultant. Building data-driven tools & AI workflows." />
+  <meta name="theme-color" content="#f5f5f7" />
+  <style>
+    :root{
+      /* Apple-like light mode */
+      --bg:#f5f5f7;
+      --panel:rgba(255,255,255,.78);
+      --text:#111827;
+      --muted:rgba(17,24,39,.65);
+      --line:rgba(17,24,39,.10);
+      --accent:#2563eb;     /* calm blue */
+      --accent2:#10b981;    /* soft green */
+      --shadow: 0 16px 50px rgba(17,24,39,.10);
+      --radius: 18px;
+      --max: 1040px;
+    }
 
-        body {
-            background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(204, 204, 204, 1) 100%);
-            color: var(--text-color);
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:
+        radial-gradient(900px 520px at 10% 10%, rgba(37,99,235,.12), transparent 55%),
+        radial-gradient(800px 520px at 85% 20%, rgba(16,185,129,.10), transparent 55%),
+        radial-gradient(700px 420px at 55% 90%, rgba(17,24,39,.06), transparent 55%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
 
-        /* Components with light translucent backgrounds */
-        .pill, .hero, .kicker, .btn, .right-card, .chip, .card, .item {
-            background-color: rgba(255, 255, 255, 0.8); /* light translucent background */
-            border: 1px solid rgba(0, 0, 0, 0.1);
-        }
-    </style>
+    a{color:inherit; text-decoration:none}
+    a:hover{color:var(--accent)}
+
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 60px}
+
+    header{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px;
+      padding:14px 6px 0;
+    }
+
+    .brand{
+      display:flex; gap:12px; align-items:center;
+      letter-spacing:.2px;
+    }
+
+    .logo{
+      width:42px; height:42px; border-radius:12px;
+      background: linear-gradient(135deg, rgba(37,99,235,.90), rgba(16,185,129,.85));
+      box-shadow: 0 12px 24px rgba(17,24,39,.12);
+      display:grid; place-items:center;
+      color:#ffffff; font-weight:800;
+    }
+
+    .brand h1{font-size:16px; margin:0}
+    .brand p{margin:0; font-size:12px; color:var(--muted)}
+
+    nav{
+      display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;
+    }
+
+    .pill{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.65);
+      padding:8px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      color: var(--muted);
+      backdrop-filter: blur(10px);
+    }
+    .pill:hover{border-color: rgba(37,99,235,.28); color:var(--text)}
+
+    .hero{
+      margin-top:22px;
+      background: linear-gradient(180deg, rgba(255,255,255,.82), rgba(255,255,255,.58));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+
+    .hero-inner{
+      padding:34px 26px;
+      display:grid;
+      grid-template-columns: 1.3fr .7fr;
+      gap:18px;
+    }
+
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:6px 10px;
+      border:1px solid rgba(17,24,39,.12);
+      border-radius:999px;
+      color:var(--muted);
+      font-size:13px;
+      width:max-content;
+      background: rgba(255,255,255,.72);
+    }
+
+    .dot{
+      width:8px;height:8px;border-radius:50%;
+      background: var(--accent2);
+      box-shadow: 0 0 0 6px rgba(16,185,129,.12);
+    }
+
+    .subhead{
+      margin:10px 0 0;
+      color:var(--muted);
+      font-size:15px;
+      max-width: 62ch;
+    }
+
+    .cta-row{
+      display:flex; gap:10px; flex-wrap:wrap; margin-top:18px;
+    }
+
+    .btn{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 14px;
+      border-radius: 12px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.72);
+      color: var(--text);
+      font-weight:600;
+      font-size: 14px;
+    }
+
+    .btn.primary{
+      border-color: rgba(37,99,235,.30);
+      background: linear-gradient(135deg, rgba(37,99,235,.12), rgba(16,185,129,.10));
+    }
+
+    .btn:hover{transform: translateY(-1px); transition: .15s ease}
+
+    .right-card{
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding:14px;
+      background: rgba(255,255,255,.72);
+      backdrop-filter: blur(10px);
+    }
+
+    .right-card h3{margin:2px 0 8px; font-size:14px}
+
+    .meta{
+      display:grid; gap:8px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .meta strong{color:var(--text); font-weight:600}
+
+    .chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
+
+    .chip{
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(17,24,39,.10);
+      color: var(--muted);
+      background: rgba(255,255,255,.65);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:14px;
+      margin-top:16px;
+    }
+
+    .card{
+      grid-column: span 6;
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.72);
+      padding:18px;
+      box-shadow: 0 10px 28px rgba(17,24,39,.08);
+      backdrop-filter: blur(10px);
+    }
+
+    .card h2{margin:0 0 8px; font-size:16px}
+    .card p{margin:0; color:var(--muted); font-size:14px}
+
+    .list{
+      margin:12px 0 0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:10px;
+    }
+
+    .item{
+      padding:12px;
+      border-radius: 14px;
+      border:1px solid rgba(17,24,39,.10);
+      background: rgba(255,255,255,.70);
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+    }
+
+    .item b{display:block; font-size:14px; margin-bottom:2px}
+    .item span{display:block; font-size:12px; color:var(--muted)}
+
+    .tag{
+      font-size:12px;
+      padding:6px 10px;
+      border-radius: 999px;
+      border:1px solid rgba(37,99,235,.22);
+      color: var(--text);
+      background: rgba(37,99,235,.08);
+      white-space: nowrap;
+      margin-top:2px;
+    }
+
+    footer{
+      margin-top:24px;
+      color: var(--muted);
+      font-size: 12px;
+      padding: 12px 6px 0;
+      display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+    }
+
+    .sep{opacity:.6}
+
+    @media (max-width: 860px){
+      .hero-inner{grid-template-columns: 1fr}
+      .card{grid-column: span 12}
+      nav{justify-content:flex-start}
+    }
+  </style>
 </head>
 <body>
-    <h1>Welcome to Your Site!</h1>
-    <!-- Rest of your content -->
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">VT</div>
+        <div>
+          <h1>Victor Tsai</h1>
+          <p>AI education advisor • builder • investor-minded analyst</p>
+        </div>
+      </div>
+      <nav>
+        <a class="pill" href="#work">Work</a>
+        <a class="pill" href="#projects">Projects</a>
+        <a class="pill" href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero" id="top">
+      <div class="hero-inner">
+        <div>
+          <div class="kicker"><span class="dot"></span>Building AI workflows for learning, planning, and decision-making</div>
+          <p class="subhead">
+            I combine business fundamentals with technical implementation to ship tools that help families, students,
+            and education professionals make better decisions—faster and with clarity.
+          </p>
+          <div class="cta-row">
+            <a class="btn primary" href="https://github.com/VictorHTsai" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn" href="#contact">Contact</a>
+            <a class="btn" href="#projects">View projects</a>
+          </div>
+        </div>
+
+        <aside class="right-card">
+          <h3>About me:</h3>
+          <div class="meta">
+            <div><strong>Locations:</strong> New York • Taipei • Shanghai</div>
+            <div><strong>Now:</strong> Building AI education workflows + dashboards</div>
+          </div>
+          <div class="chips" aria-label="Focus areas">
+            <span class="chip">AI for Parents • AI for Students • AI for Education</span>
+            <span class="chip">Dashboards</span>
+            <span class="chip">Data + Automation</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="grid" id="work">
+      <div class="card">
+        <h2>What I do</h2>
+        <p>
+          I am designing education and decision-support systems that blend human judgment with AI.
+        </p>
+        <ul class="list">
+          <li class="item">
+            <div>
+              <b>Education advisory</b>
+              <span>Help parents and educators apply AI for education, learning strategies, and elite school admissions.</span>
+            </div>
+            <div class="tag">Education</div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card" id="projects">
+        <h2>Featured projects</h2>
+        <ul class="list">
+          <li class="item">
+            <div>
+              <b>AI for Parents Workshop Kit</b>
+              <span>Templates + prompts for academic planning, learning systems, and college application strategies.</span>
+            </div>
+            <a class="tag" href="#" onclick="return false;">In progress</a>
+          </li>
+          <li class="item">
+            <div>
+              <b>US-China Business Consulting (Bilingual)</b>
+              <span>Business presentation & communication coach</span>
+            </div>
+            <a class="tag" href="#" onclick="return false;">Curriculum</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card" id="contact">
+        <h2>Contact</h2>
+        <ul class="list">
+          <li class="item">
+            <div>
+              <b>Email</b>
+              <span>greatvic@seas.upenn.edu</span>
+            </div>
+            <span class="tag">Preferred</span>
+          </li>
+          <li class="item">
+            <div>
+              <b>LinkedIn</b>
+              <span>VictorTsai</span>
+            </div>
+            <a class="tag" href="https://www.linkedin.com/in/vht35/" target="_blank" rel="noopener">Open</a>
+          </li>
+          <li class="item">
+            <div>
+              <b>GitHub</b>
+              <span>@VictorHTsai</span>
+            </div>
+            <a class="tag" href="https://github.com/VictorHTsai" target="_blank" rel="noopener">Open</a>
+          </li>
+          <li class="item">
+            <div>
+              <b>Location</b>
+              <span>New York • Taipei • Shanghai</span>
+            </div>
+            <span class="tag">Flexible</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="y"></span> Victor Tsai <span class="sep">•</span> Built with GitHub Pages</div>
+      <div><a href="#top">Back to top</a></div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
