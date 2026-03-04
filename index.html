@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Victor Tsai</title>
+  <meta name="description" content="Victor Tsai — Education consultant. Building data-driven tools & AI workflows." />
+  <meta name="theme-color" content="#0b1220" />
+  <style>
+    :root{
+      --bg:#0b1220;
+      --panel:#0f1a33;
+      --text:#e7eefc;
+      --muted:#a9b7d6;
+      --line:rgba(255,255,255,.12);
+      --accent:#7aa2ff;
+      --accent2:#66e3c4;
+      --shadow: 0 16px 50px rgba(0,0,0,.35);
+      --radius: 18px;
+      --max: 1040px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:
+        radial-gradient(900px 520px at 10% 10%, rgba(122,162,255,.20), transparent 55%),
+        radial-gradient(800px 520px at 85% 20%, rgba(102,227,196,.16), transparent 55%),
+        radial-gradient(700px 420px at 55% 90%, rgba(255,255,255,.06), transparent 55%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
+    a{color:inherit; text-decoration:none}
+    a:hover{color:var(--accent)}
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 60px}
+    header{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px;
+      padding:14px 6px 0;
+    }
+    .brand{
+      display:flex; gap:12px; align-items:center;
+      letter-spacing:.2px;
+    }
+    .logo{
+      width:42px; height:42px; border-radius:12px;
+      background: linear-gradient(135deg, rgba(122,162,255,.95), rgba(102,227,196,.95));
+      box-shadow: 0 10px 24px rgba(0,0,0,.35);
+      display:grid; place-items:center;
+      color:#061023; font-weight:800;
+    }
+    .brand h1{font-size:16px; margin:0}
+    .brand p{margin:0; font-size:12px; color:var(--muted)}
+    nav{
+      display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;
+    }
+    .pill{
+      border:1px solid var(--line);
+      background: rgba(15,26,51,.55);
+      padding:8px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      color: var(--muted);
+      backdrop-filter: blur(10px);
+    }
+    .pill:hover{border-color: rgba(122,162,255,.55); color:var(--text)}
+    .hero{
+      margin-top:22px;
+      background: linear-gradient(180deg, rgba(15,26,51,.75), rgba(15,26,51,.35));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .hero-inner{
+      padding:34px 26px;
+      display:grid;
+      grid-template-columns: 1.3fr .7fr;
+      gap:18px;
+    }
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:6px 10px;
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:999px;
+      color:var(--muted);
+      font-size:13px;
+      width:max-content;
+      background: rgba(11,18,32,.35);
+    }
+    .dot{
+      width:8px;height:8px;border-radius:50%;
+      background: var(--accent2);
+      box-shadow: 0 0 0 6px rgba(102,227,196,.10);
+    }
+    .headline{
+      font-size:34px;
+      line-height:1.12;
+      margin:14px 0 10px;
+      letter-spacing:-.4px;
+    }
+    .subhead{
+      margin:0;
+      color:var(--muted);
+      font-size:15px;
+      max-width: 62ch;
+    }
+    .cta-row{
+      display:flex; gap:10px; flex-wrap:wrap; margin-top:18px;
+    }
+    .btn{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 14px;
+      border-radius: 12px;
+      border:1px solid var(--line);
+      background: rgba(11,18,32,.35);
+      color: var(--text);
+      font-weight:600;
+      font-size: 14px;
+    }
+    .btn.primary{
+      border-color: rgba(122,162,255,.55);
+      background: linear-gradient(135deg, rgba(122,162,255,.28), rgba(102,227,196,.16));
+    }
+    .btn:hover{transform: translateY(-1px); transition: .15s ease}
+    .right-card{
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding:14px;
+      background: rgba(11,18,32,.35);
+    }
+    .right-card h3{margin:2px 0 8px; font-size:14px}
+    .meta{
+      display:grid; gap:8px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .meta strong{color:var(--text); font-weight:600}
+    .chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
+    .chip{
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      color: var(--muted);
+      background: rgba(15,26,51,.45);
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:14px;
+      margin-top:16px;
+    }
+    .card{
+      grid-column: span 6;
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(15,26,51,.45);
+      padding:18px;
+      box-shadow: 0 10px 28px rgba(0,0,0,.22);
+    }
+    .card h2{margin:0 0 8px; font-size:16px}
+    .card p{margin:0; color:var(--muted); font-size:14px}
+    .list{
+      margin:12px 0 0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:10px;
+    }
+    .item{
+      padding:12px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(11,18,32,.25);
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .item b{display:block; font-size:14px; margin-bottom:2px}
+    .item span{display:block; font-size:12px; color:var(--muted)}
+    .tag{
+      font-size:12px;
+      padding:6px 10px;
+      border-radius: 999px;
+      border:1px solid rgba(122,162,255,.45);
+      color: var(--text);
+      background: rgba(122,162,255,.12);
+      white-space: nowrap;
+      margin-top:2px;
+    }
+    footer{
+      margin-top:24px;
+      color: var(--muted);
+      font-size: 12px;
+      padding: 12px 6px 0;
+      display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+    }
+    .sep{opacity:.6}
+    @media (max-width: 860px){
+      .hero-inner{grid-template-columns: 1fr}
+      .headline{font-size:28px}
+      .card{grid-column: span 12}
+      nav{justify-content:flex-start}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">VT</div>
+        <div>
+          <h1>Victor Tsai</h1>
+          <p>AI education advisor • builder • investor-minded analyst</p>
+        </div>
+      </div>
+      <nav>
+        <a class="pill" href="#work">Work</a>
+        <a class="pill" href="#projects">Projects</a>
+        <a class="pill" href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero" id="top">
+      <div class="hero-inner">
+        <div>
+          <div class="kicker"><span class="dot"></span>Building AI workflows for learning, planning, and decision-making</div>
+          <p class="subhead">
+            I combine business fundamentals with technical implementation to ship tools that help families, students,
+            and education professionals make better decisions—faster and with clarity.
+          </p>
+          <div class="cta-row">
+            <!-- Replace links as needed -->
+            <a class="btn primary" href="https://github.com/VictorHTsai" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn" href="#contact">Contact</a>
+            <a class="btn" href="#projects">View projects</a>
+          </div>
+        </div>
+
+        <aside class="right-card">
+          <h3>About me:</h3>
+          <div class="meta">
+            <div><strong>Locations:</strong> New York • Taipei • Shanghai</div>
+            <div><strong>Now:</strong> Building AI education workflows + dashboards</div>
+          </div>
+          <div class="chips" aria-label="Focus areas">
+            <span class="chip">AI for Parents • AI for Students • AI for Education</span>
+            <span class="chip">Dashboards</span>
+            <span class="chip">Data + Automation</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="grid" id="work">
+      <div class="card">
+        <h2>What I do</h2>
+        <p>
+          I am designing education and decision-support systems that blend human judgment with AI.
+        </p>
+        <ul class="list">
+          <li class="item">
+            <div>
+              <b>Education advisory</b>
+              <span>Help parents and educators apply AI for education, learning strategies, and elite school admissions.</span>
+            </div>
+            <div class="tag">Education</div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card" id="projects">
+        <h2>Featured projects</h2>
+        <ul class="list">
+          <li class="item">
+            <div>
+              <b>AI for Parents Workshop Kit</b>
+              <span>Templates + prompts for academic planning, learning systems, and college application strategies.</span>
+            </div>
+            <a class="tag" href="#" onclick="return false;">In progress</a>
+          </li>
+          <li class="item">
+            <div>
+              <b>US-China Business Consulting (Bilingual)</b>
+              <span>Chinese–English business presentation & communication coach</span>
+            </div>
+            <a class="tag" href="#" onclick="return false;">Curriculum</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card" id="contact">
+        <h2>Contact</h2>
+        <ul class="list">
+          <li class="item">
+            <div>
+              <b>Email</b>
+              <span>you@example.com</span>
+            </div>
+            <span class="tag">Preferred</span>
+          </li>
+          <li class="item">
+            <div>
+              <b>GitHub</b>
+              <span>@VictorHTsai</span>
+            </div>
+            <a class="tag" href="https://github.com/VictorHTsai" target="_blank" rel="noopener">Open</a>
+          </li>
+          <li class="item">
+            <div>
+              <b>Location</b>
+              <span>New York • Taipei • Shanghai</span>
+            </div>
+            <span class="tag">Flexible</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="y"></span> Victor Tsai <span class="sep">•</span> Built with GitHub Pages</div>
+      <div><a href="#top">Back to top</a></div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
