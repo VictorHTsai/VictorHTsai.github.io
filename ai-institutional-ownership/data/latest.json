@@ -1,0 +1,9 @@
+{
+  "status": "pending_verification",
+  "checked_at": null,
+  "source": "SEC EDGAR Form 13F",
+  "latest_quarter": null,
+  "series": [],
+  "stocks": [],
+  "message": "The public site is live, but verified 2022–2026 historical 13F holdings have not been ingested. A daily check must not be presented as a daily change in institutional holdings."
+}
