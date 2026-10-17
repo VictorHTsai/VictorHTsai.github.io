@@ -24,8 +24,7 @@ class Links(HTMLParser):
 def main():
     payload=json.loads(DATA.read_text(encoding="utf-8"))
     now=datetime.now(timezone.utc).isoformat(timespec="seconds")
-    req=urllib.request.Request(SEC_URL,headers={"User-Agent":"VictorInvestmentOS Research Contact: investment-os@example.org","Accept":"text/html"})
-    # A real owner contact should replace the placeholder before relying on production polling.
+    req=urllib.request.Request(SEC_URL,headers={"User-Agent":"VictorInvestmentOS/0.1 (https://github.com/VictorHTsai/VictorHTsai.github.io)","Accept":"text/html"})
     try:
         with urllib.request.urlopen(req,timeout=30) as res: body=res.read().decode("utf-8","replace")
         parser=Links();parser.feed(body)
