@@ -1,13 +1,13 @@
 {
   "status": "pending_verification",
-  "checked_at": "2026-10-30T08:46:28+00:00",
+  "checked_at": "2026-10-31T08:33:30+00:00",
   "source": "SEC EDGAR Form 13F",
   "latest_quarter": null,
   "series": [],
   "stocks": [],
   "message": "The public site is live, but verified 2022–2026 historical 13F holdings have not been ingested. A daily check must not be presented as a daily change in institutional holdings.",
   "sec_archive_check": {
-    "checked_at": "2026-10-30T08:46:28+00:00",
+    "checked_at": "2026-10-31T08:33:30+00:00",
     "status": "error",
     "detail": "HTTP Error 403: Forbidden",
     "source_url": "https://www.sec.gov/data-research/sec-markets-data/form-13f-data-sets"
